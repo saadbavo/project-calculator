@@ -16,7 +16,8 @@ function divide(a, b){
 
 let num1 = x;
 let num2 = y;
-let operator = "+";
+let operator = " ";
 function operate(num1, num2, operator){
-return add(num1, num2)
+    if (operator === "+"){
+   return add(num1, num2)};
 };
