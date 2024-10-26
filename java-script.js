@@ -14,8 +14,8 @@ function divide(a, b){
     return a/b; 
 };
 
-let num1 = 0;
-let num2 = 0;
+let num1 = null;
+let num2 = null;
 let operator = " ";
 function operate(num1, num2, operator){
     if (operator === "+"){
@@ -24,7 +24,7 @@ function operate(num1, num2, operator){
 let displayValue= 0;
 let displayArea = document.getElementById('result');
 const numbutton = document.querySelectorAll(".num");
-numbutton.forEach(nuM =>{
+numbutton.forEach(num =>{
     addEventListener('click' , (e) =>{
         updateDisplay(e)
     })
@@ -32,4 +32,17 @@ numbutton.forEach(nuM =>{
 let updateDisplay = (e) =>{
     displayValue = e.target.id;
     displayArea.innerHTML = displayValue;
-}
+}; 
+
+let idValue = (e) =>{
+    id = e.target.id;
+};
+
+numbutton.forEach(num => {
+    addEventListener('click' , update =>{
+        if(num1 === null){
+            return num1 = idValue;
+        }
+    } )
+    console.log(num1)
+})
