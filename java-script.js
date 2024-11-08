@@ -22,10 +22,6 @@ function operate(num1, num2, operator){
    return add(num1, num2)};
 };
 
-let updateDisplay = (e) =>{
-    displayValue = e.target.id;
-    displayArea.innerHTML = displayValue;
-}; 
 
 const nbutton = document.querySelectorAll(".num");
 nbutton.forEach(num => {
