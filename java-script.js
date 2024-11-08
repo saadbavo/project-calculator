@@ -21,27 +21,17 @@ function operate(num1, num2, operator){
     if (operator === "+"){
    return add(num1, num2)};
 };
-let displayValue= 0;
-let displayArea = document.getElementById('result');
-const numbutton = document.querySelectorAll(".num");
-numbutton.forEach(num =>{
-    addEventListener('click' , (e) =>{
-        updateDisplay(e)
-    })
-});
+
 let updateDisplay = (e) =>{
     displayValue = e.target.id;
     displayArea.innerHTML = displayValue;
 }; 
 
-let idValue = (e) =>{
-    id = e.target.id;
-};
-
-numbutton.forEach(num => {
+const nbutton = document.querySelectorAll(".num");
+nbutton.forEach(num => {
     addEventListener('click' , update =>{
-        if(num1 === null){
-            return num1 = idValue;
+        if(num1 == null){
+            return num1 = nbutton.id;
         }
     } )
     console.log(num1)
