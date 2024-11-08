@@ -33,12 +33,18 @@ function operate(num1, num2, operator){
 
 
 
-const nbutton = document.querySelectorAll(".num");
-nbutton.forEach(num => {
-    addEventListener('click' , update =>{
-        if(num1 == null){
-            return num1 = nbutton.id;
+const nums = document.querySelectorAll(".num");
+nums.forEach(num => {
+    num.addEventListener("click", ()=> {
+        const dis = document.querySelector(".display");
+        dis.textContent = num.id
+    });
+    num.addEventListener('click', ()=>{
+        if (num1 ==null){
+            return num1 = num.id;
         }
-    } )
-    console.log(num1)
-})
+        else if (num2 == null){
+            return num2 = num.id
+        };
+    });
+});
