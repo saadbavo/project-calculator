@@ -1,0 +1,123 @@
+/* General Reset */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+/* Calculator Container */
+.container {
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+}
+
+/* Display Section */
+.display {
+    background-color: #222;
+    color: #fff;
+    font-size: 2.5em;
+    text-align: right;
+    padding: 15px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    overflow: hidden;
+}
+
+/* Main Section */
+.main {
+    display: flex;
+    justify-content: space-between; /* Numbers on the left, operators on the right */
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+/* Numbers Section */
+#numbers {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    width: 65%; /* Numbers take 65% of the row */
+    justify-content: space-between;
+}
+
+.num {
+    flex: 1 1 calc(33.33% - 10px); /* Each number button is 33.33% of the width */
+    height: 60px;
+    font-size: 1.5em;
+    border: none;
+    border-radius: 5px;
+    background-color: #f0f0f0;
+    color: #333;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+/* Operator Section */
+#operators {
+    display: flex;
+    flex-direction: column; /* Operators are stacked vertically */
+    gap: 10px;
+    width: 30%; /* Operators take 30% of the row */
+}
+
+.operators {
+    flex: 1;
+    height: 60px;
+    font-size: 1.5em;
+    border: none;
+    border-radius: 5px;
+    background-color: #f0f0f0;
+    color: #333;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+/* Special Buttons Section */
+.btn {
+    display: flex;
+    gap: 10px;
+    justify-content: space-between;
+}
+
+.c {
+    flex: 1; /* All buttons are equal width */
+    height: 60px;
+    font-size: 1.5em;
+    border: none;
+    border-radius: 5px;
+    background-color: #f0f0f0;
+    color: #333;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+/* Specific Styles for Special Buttons */
+#clear {
+    background-color: #ff6666;
+    color: #fff;
+    font-weight: bold;
+}
+
+#equal {
+    background-color: #4caf50;
+    color: #fff;
+    font-weight: bold;
+}
+
+/* Hover and Active Effects */
+button:hover {
+    background-color: #ddd;
+}
+
+button:active {
+    background-color: #bbb;
+}
