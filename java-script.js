@@ -7,15 +7,15 @@ function subtract(a , b){
     return a - b;
 
 };
-function multiply(arr){
-    return arr.reduce((product, current) =>product* current)
+function multiply(a, b){
+    return a*b
 };
 function divide(a, b){
     return a/b; 
 };
 
-let num1 = null;
-let num2 = null;
+let numB1 = null;
+let numB2 = null;
 let operator = "";
 function operate(num1, num2, operator){
     if (operator === "+"){
@@ -30,21 +30,26 @@ function operate(num1, num2, operator){
     return divide(num1, num2)
    }
 };
+function updateDisplay(numb){
+    const dis = document.querySelector(".display");
+    let currentNm =+numb
+    dis.textContent = currentNm
 
+}
 
 
 const nums = document.querySelectorAll(".num");
 nums.forEach(num => {
-    num.addEventListener("click", ()=> {
-        const dis = document.querySelector(".display");
-        dis.textContent = num.id
+    num.addEventListener("click", () => {
+        updateDisplay(num.id)
+
     });
     num.addEventListener('click', ()=>{
-        if (num1 ==null){
-            return num1 = num.id;
+        if (operator ==""){
+            return numB1 = parseFloat(num.id);
         }
-        else if (num2 == null){
-            return num2 = num.id
+        else if (numB2 == null){
+            return numB2 = num.id
         };
     });
 });
