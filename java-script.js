@@ -11,25 +11,30 @@ function multiply(a, b){
     return a*b
 };
 function divide(a, b){
+    if (b === 0) {
+        return "Error"; 
+    }
     return a/b; 
 };
 
 let numB1 = null;
 let numB2 = null;
 let operator = "";
-function operate(num1, num2, operator){
-    if (operator === "+"){
-   return add(num1, num2)}
-   else if(operator ==="-"){
-    return subtract(num1, num2);
-   }
-   else if(operator=== "x"){
-    return multiply([num1,num2])
-   }
-   else if(operator === "/") {
-    return divide(num1, num2)
-   }
+function operate(operator, a, b) {
+    switch (operator) {
+        case '+':
+            return add(a, b);
+        case '-':
+            return subtract(a, b);
+        case '*':
+            return multiply(a, b);
+        case '/':
+            return divide(a, b);
+        default:
+            return "Invalid Operator";
+    }
 };
+
 function updateDisplay(numb){
     const dis = document.querySelector(".display");
     let currentNm =+numb
