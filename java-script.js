@@ -35,26 +35,54 @@ function operate(operator, a, b) {
     }
 };
 
-function updateDisplay(numb){
-    const dis = document.querySelector(".display");
-    let currentNm =+numb
-    dis.textContent = currentNm
-
-}
+const display = document.querySelector(".display");
+let firstOperand = '';
+let secondOperand = '';
+let currentOperator = null;
 
 
-const nums = document.querySelectorAll(".num");
-nums.forEach(num => {
-    num.addEventListener("click", () => {
-        updateDisplay(num.id)
 
-    });
-    num.addEventListener('click', ()=>{
-        if (operator ==""){
-            return numB1 = parseFloat(num.id);
+
+const buttons = document.querySelectorAll("button");
+buttons.forEach(button => {
+    button.addEventListener("click", () => {
+        const value = button.textContent;
+
+    
+
+    if (!isNaN(value) || value === '.') {
+        // Number or decimal point
+        if (currentOperator) {
+            secondOperand += value;
+            display.textContent = secondOperand;
+        } else {
+            firstOperand += value;
+            display.textContent = firstOperand;
         }
-        else if (numB2 == null){
-            return numB2 = num.id
-        };
-    });
+    } else if (value === 'Clear') {
+        firstOperand = '';
+        secondOperand = '';
+        currentOperator = null;
+        display.textContent = '0';
+    } else if (value === '=') {
+        if (firstOperand && secondOperand && currentOperator) {
+            const result = operate(currentOperator, parseFloat(firstOperand), parseFloat(secondOperand));
+            display.textContent = result;
+            firstOperand = result.toString();
+            secondOperand = '';
+            currentOperator = null;
+        }
+    } else {
+        // Handle operator input
+        if (currentOperator && secondOperand) {
+            // If there's already an operator and second operand, calculate the result
+            const result = operate(currentOperator, parseFloat(firstOperand), parseFloat(secondOperand));
+            display.textContent = result;
+            firstOperand = result.toString();
+            secondOperand = '';
+        }
+        // Operator
+        currentOperator = value;
+    }
+});
 });
